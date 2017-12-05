@@ -10,6 +10,8 @@ namespace List
     {
         static void Main(string[] args)
         {
+            CustomList customlist = new CustomList();
+
         }
     }
 }
