@@ -1,0 +1,2 @@
+C:\Users\Chez\Desktop\CSharp\List\List\List\bin\Debug\List.exe.config
+C:\Users\Chez\Desktop\CSharp\CustomList\CustomList\List\bin\Debug\List.exe.config
