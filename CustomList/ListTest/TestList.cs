@@ -8,94 +8,42 @@ namespace ListTest
     public class TestList
     {
         [TestMethod]
-        public void CustomList_Increment_IncreaseListCount()
+        public void CustomList_InstanceStringList_CreateList()
         {
             //Arrange
             CustomList customlist = new CustomList();
-            int listValue = 0;
-            int addValue = 1;
+            customlist.BuildArray();
 
             //Act
-            listValue += addValue;
+            string[] array = new string[0];
 
             //Assert
-            Assert.AreEqual(listValue, 1);
+            Assert.AreEqual(array, "string");
         }
 
         [TestMethod]
-        public void CustomList_Decrement_DecreaseListCount()
+        public void CustomList_CountArray_TwoItems()
         {
             //Arrange
-            CustomList customList = new CustomList();
-            int listValue = 0;
-            int decreaseValue = -1;
+            string[] array = new string[2] { "one", "" };
 
             //Act
-            listValue += decreaseValue;
-
+            array.Count()
+            
             //Assert
-            Assert.AreNotEqual(listValue, 1);
+            Assert.AreEqual(array, 2);
         }
 
         [TestMethod]
-        public void CustomList_Decrement_ListEqualsZero()
+        public void CustomList_AddToArray_IncreaseArray()
         {
             //Arrange
-            CustomList customList = new CustomList();
-            int listValue = 1;
-            int decreaseValue = -1;
 
             //Act
-            listValue += decreaseValue;
 
             //Assert
-            Assert.AreEqual(listValue, 0);
+
         }
-
-        [TestMethod]
-        public void CustomList_AddString_IncreaseIndex()
-        {
-            //Arrange
-            CustomList customlist = new CustomList();
-            string stringValue = "string";
-            string[] index = new string[1];
-
-            //Act
-            index[0] += stringValue;
-
-            //Assert
-            Assert.AreEqual(index[0], "string");
-        }
-
-        [TestMethod]
-        public void CustomList_AddInt_IncreaseIndex()
-        {
-            //Arrange
-            CustomList customlist = new CustomList();
-            int intValue = 0;
-            int[] index = new int[1];
-
-            //Act
-            index[0] += intValue;
-
-            //Assert
-            Assert.AreEqual(index[0], 0);
-        }
-
-        //[TestMethod]
-        //public void CustomList_AddChar_IncreaseIndex()
-        //{
-        //    //Arrange
-        //    CustomList customlist = new CustomList();
-        //    char;
-        //    string[] index = new string[1];
-
-        //    //Act
-        //    index[0] = char;
-
-        //    //Assert
-
-        //}
 
         [TestMethod]
         public void CustomList_AddSecondItemToIndex_IncreaseIndex()
@@ -112,25 +60,5 @@ namespace ListTest
             //Assert
             Assert.AreEqual(index[1], "string");
         }
-
-        //[TestMethod]
-        //public void CustomList_AddIndexToIndex_ExpandIndex()
-        //{
-        //    //Arrange
-        //    CustomList customList = new CustomList();
-        //    string[] indexOne = new string[0];
-        //    string[] indexTwo = new string[1];
-
-        //    //Act
-        //    indexTwo[0] += indexOne[0];
-
-        //    for(int = indexOne; int < indexTwo; i++)
-        //    {
-        //        indexOne++;
-        //    }
-
-        //    //Assert
-        //    Assert.AreEqual(indexTwo[0], indexOne[0]);
-        //}
     }
 }

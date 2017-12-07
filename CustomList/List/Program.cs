@@ -11,6 +11,9 @@ namespace List
         static void Main(string[] args)
         {
             CustomList customlist = new CustomList();
+            customlist.BuildIndex();
+            customlist.DisplayArray();
+            Console.ReadKey();
 
         }
     }
