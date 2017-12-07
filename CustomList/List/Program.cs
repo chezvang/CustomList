@@ -13,6 +13,8 @@ namespace List
             CustomList<string> array = new CustomList<string>();
             array.AddToArray("1");
 
+            Console.WriteLine(array);
+
             Console.ReadKey();
 
         }

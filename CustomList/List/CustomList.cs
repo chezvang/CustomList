@@ -8,13 +8,13 @@ namespace List
 {
     public class CustomList <T>
     {
-        CustomList<string> array = new CustomList<string>();
+        //CustomList<string> array = new CustomList<string>();
 
-        private int arrayCount; //keeps track of count
-        private int arrayCapacity; //keeps track of capacity
+        public int arrayCount; //keeps track of count
+        public int arrayCapacity; //keeps track of capacity
 
         //indexer
-        private T[] items;
+        public T[] items;
         
         public T this[int i]
         {
@@ -30,24 +30,9 @@ namespace List
 
         public CustomList()
         {
-            arrayCapacity = 4;
+            arrayCapacity = 1;
             arrayCount = 0;
             items = new T[arrayCapacity];
-        }
-
-        //methods
-        public int CountArray()
-        {
-            arrayCount = array.CountArray();
-
-            return arrayCount;
-        }
-
-        public int CapacityArray()
-        {
-            arrayCapacity = array.CapacityArray();
-
-            return arrayCapacity;
         }
 
         public void AddToArray(T item)
