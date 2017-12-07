@@ -6,24 +6,54 @@ using System.Threading.Tasks;
 
 namespace List
 {
-    public class CustomList
+    public class CustomList <T>
     {
+        CustomList<string> list = new CustomList<string>();
 
-        string[] array = new string[2] { "one", "" };
+        private int listCount;
+        private int listCapacity;
 
-        public void BuildIndex()
+        //indexer
+        private T[] items;
+        
+        public T this[int i]
         {
-            //string[] array = new string[0];
+            get
+            {
+                return items[i];
+            }
+            set
+            {
+                items[i] = value;
+            }
         }
 
-        public void DisplayArray()
+        public CustomList()
         {
-            Console.WriteLine(array.Length());
+            items = new T[listCapacity];
         }
 
-        public void AddToIndex()
+        //methods
+        public void AddToArray()
         {
-            
+            for (int i = 1; i < arrayCapacity; i++)
+            {
+                arrayOne[i-1] = "test";
+            }
+        }
+
+        public int CountArray()
+        {
+            arrayCount = arrayOne.Count();
+
+            return arrayOne.Count();
+        }
+
+        public int CapacityArray()
+        {
+            arrayCapacity = arrayOne.Count() + 1;
+
+            return arrayOne.Count();
         }
     }
 }

@@ -8,36 +8,75 @@ namespace ListTest
     public class TestList
     {
         [TestMethod]
-        public void CustomList_InstanceStringList_CreateList()
+        public void CustomList_InstanceList_CreateList()
+        {
+            //Arrange
+            CustomList<string> list = new CustomList<string>();
+
+            //Act
+            string[] array = new string[0];
+
+            //Assert
+            Assert.AreEqual(array, "empty");
+        }
+
+        public void CustomList_AddToArray_AddItem()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+
+        }
+
+        [TestMethod]
+        public void CustomList_CheckArrayCapacity_IncreaseArrayCapacity()
         {
             //Arrange
             CustomList customlist = new CustomList();
             customlist.BuildArray();
 
             //Act
-            string[] array = new string[0];
+
 
             //Assert
-            Assert.AreEqual(array, "string");
+
         }
 
-        [TestMethod]
         public void CustomList_CountArray_TwoItems()
         {
             //Arrange
             string[] array = new string[2] { "one", "" };
+            int arrayCount;
 
             //Act
-            array.Count()
+            array.Count();
+            arrayCount = array.Count();
             
             //Assert
             Assert.AreEqual(array, 2);
         }
 
-        [TestMethod]
-        public void CustomList_AddToArray_IncreaseArray()
+        public void CustomList_CapacityArray_OneHigher()
         {
             //Arrange
+            string[] array = new string[2] { "", "" };
+
+            //Act
+            array.Count();
+
+            //Assert
+            Assert.AreEqual()
+        }
+
+        [TestMethod]
+        public void CustomList_ExpandArray_IncreaseArray()
+        {
+            //Arrange
+            string[] arrayOne = new string[0];
+            string[] arrayTwo = new string[1];
+            string[] arrayThree = new string[2];
 
             //Act
 
