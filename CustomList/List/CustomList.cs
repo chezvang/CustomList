@@ -8,10 +8,10 @@ namespace List
 {
     public class CustomList <T>
     {
-        CustomList<string> list = new CustomList<string>();
+        CustomList<string> array = new CustomList<string>();
 
-        private int listCount;
-        private int listCapacity;
+        private int arrayCount; //keeps track of count
+        private int arrayCapacity; //keeps track of capacity
 
         //indexer
         private T[] items;
@@ -30,30 +30,55 @@ namespace List
 
         public CustomList()
         {
-            items = new T[listCapacity];
+            arrayCapacity = 4;
+            arrayCount = 0;
+            items = new T[arrayCapacity];
         }
 
         //methods
-        public void AddToArray()
-        {
-            for (int i = 1; i < arrayCapacity; i++)
-            {
-                arrayOne[i-1] = "test";
-            }
-        }
-
         public int CountArray()
         {
-            arrayCount = arrayOne.Count();
+            arrayCount = array.CountArray();
 
-            return arrayOne.Count();
+            return arrayCount;
         }
 
         public int CapacityArray()
         {
-            arrayCapacity = arrayOne.Count() + 1;
+            arrayCapacity = array.CapacityArray();
 
-            return arrayOne.Count();
+            return arrayCapacity;
+        }
+
+        public void AddToArray(T item)
+        {
+            if (arrayCount < arrayCapacity)
+            {
+                items[arrayCount] = item;
+                arrayCount++;
+            }
+            else if (arrayCount >= arrayCapacity)
+            {
+                arrayCapacity = arrayCapacity + 1;
+                arrayCount = 0;
+
+                T[] temporaryItem = new T[arrayCapacity];
+
+                foreach (T thing in items) //change thing
+                {
+                    temporaryItem[arrayCount] = thing; //change thing
+                    arrayCount++;
+                }
+                temporaryItem[arrayCount] = item;
+                items = new T[arrayCapacity];
+                arrayCount++;
+                items = temporaryItem;
+            }
+        }
+
+        public void RemoveFromArray(string T)
+        {
+
         }
     }
 }
