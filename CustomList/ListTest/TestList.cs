@@ -133,5 +133,32 @@ namespace ListTest
             //Assert
             Assert.AreEqual(testResult, listString);
         }
+
+        [TestMethod]
+        public void CustomList_AddOperator_ReturnList()
+        {
+            //Arrange
+            CustomList<int> list1 = new CustomList<int>();
+            CustomList<int> list2 = new CustomList<int>();
+            CustomList<int> list3 = new CustomList<int>();
+            int expectedResult = 10;
+            int one = 2;
+            int two = 3;
+            int three = 1;
+            int four = 4;
+            int five = 0;
+
+            //Act
+            list1.AddToArray(one);
+            list1.AddToArray(two);
+            list2.AddToArray(three);
+            list2.AddToArray(four);
+            //list3.AddToArray(five);
+
+            list3 = list1 + list2;
+
+            //Assert
+            Assert.AreEqual(expectedResult, list3[0]);
+        }
     }
 }

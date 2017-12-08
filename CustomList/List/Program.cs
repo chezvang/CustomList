@@ -11,13 +11,14 @@ namespace List
         static void Main(string[] args)
         {
             CustomList<string> array = new CustomList<string>();
-            //array.AddToArray("1");
+            array.AddToArray("1");
             //array.AddToArray("2");
             //array.AddToArray("3");
 
             //array.RemoveFromArray("2");
 
-            //Console.WriteLine(array.ToString);
+            Console.WriteLine(array[0]);
+            //Console.WriteLine(array.CountIntList);
 
             Console.ReadKey();
 

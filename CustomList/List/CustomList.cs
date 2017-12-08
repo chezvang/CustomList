@@ -29,7 +29,7 @@ namespace List
 
         public CustomList()
         {
-            arrayCapacity = 3;
+            arrayCapacity = 1;
             arrayCount = 0;
             items = new T[arrayCapacity];
         }
@@ -40,7 +40,6 @@ namespace List
             {
                 items[arrayCount] = item;
                 arrayCount++;
-                arrayCapacity++;
             }
 
         }
@@ -77,6 +76,24 @@ namespace List
             newString = items[0].ToString();
 
             return newString;
+        }
+
+        public static CustomList<T> operator + (CustomList<T>list1, CustomList<T>list2)
+        {
+            CustomList<T> list3 = new CustomList<T>();
+
+            if (list1 != null && list2 != null)
+            {
+                for (int i = 0; i < list1.arrayCount; i++)
+                {
+                    list3.AddToArray(list1.items[i]);
+                }
+                for (int i = 0; i < list2.arrayCount; i++)
+                {
+                    list3.AddToArray(list2.items[i]);
+                }
+            }
+            return list3;
         }
     }
 }
