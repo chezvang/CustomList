@@ -78,16 +78,22 @@ namespace ListTest
         }
 
         [TestMethod]
-        public void CustomList_CheckArrayCapacity_IncreaseArrayCapacity()
+        public void CustomList_RemoveStringFromArray_RemoveItem()
         {
             //Arrange
-            
+            CustomList<string> list = new CustomList<string>();
+            list.AddToArray("test");
+            list.AddToArray("test2");
+            list.AddToArray("test3");
 
             //Act
+            list.RemoveFromArray("test2");
 
+            string test = "test3";
 
             //Assert
-
+            Assert.AreEqual(test, list[1]);
         }
+
     }
 }

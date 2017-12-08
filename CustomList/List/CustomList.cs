@@ -30,7 +30,7 @@ namespace List
 
         public CustomList()
         {
-            arrayCapacity = 1;
+            arrayCapacity = 3;
             arrayCount = 0;
             items = new T[arrayCapacity];
         }
@@ -39,32 +39,33 @@ namespace List
         {
             if (arrayCount < arrayCapacity)
             {
+                //arrayCapacity++;
                 items[arrayCount] = item;
                 arrayCount++;
                 arrayCapacity++;
             }
-            //else if (arrayCount >= arrayCapacity)
-            //{
-            //    arrayCapacity = arrayCapacity + 1;
-            //    //arrayCount = 0;
 
-            //    T[] temporaryItem = new T[arrayCapacity];
-
-            //    foreach (T thing in items) //change thing
-            //    {
-            //        temporaryItem[arrayCount] = thing; //change thing
-            //        arrayCount++;
-            //    }
-            //    temporaryItem[arrayCount] = item;
-            //    items = new T[arrayCapacity];
-            //    arrayCount++;
-            //    items = temporaryItem;
-            //}
         }
 
-        public void RemoveFromArray(string T)
+        public void RemoveFromArray(T item)
         {
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i].Equals(item))
+                {
+                    arrayCapacity--;
+                    RemoveArrayStart(i);
+                    //arrayCapacity--;
+                }
+            }
+        }
 
+        public void RemoveArrayStart(int start)
+        {
+            for (int i = start; i < arrayCount - 1; i++)
+            {
+                items[i] = items[i + 1];
+            }
         }
     }
 }
