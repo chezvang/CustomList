@@ -14,11 +14,31 @@ namespace ListTest
             CustomList<string> list = new CustomList<string>();
 
             //Act
-            string test = "string";
+            string test = "stringtwo";
             list.AddToArray("string");
+            list.AddToArray("stringtwo");
 
             //Assert
-            Assert.AreEqual(test, list[0]);
+            Assert.AreEqual(test, list[1]);
+        }
+
+        [TestMethod]
+        public void CustomList_AddFiveStringToArray_AddItem()
+        {
+            //Arrange
+            CustomList<string> list = new CustomList<string>();
+
+            //Act
+            string test = "stringfive";
+
+            list.AddToArray("stringone");
+            list.AddToArray("stringtwo");
+            list.AddToArray("stringthree");
+            list.AddToArray("stringfour");
+            list.AddToArray("stringfive");
+
+            //Assert
+            Assert.AreEqual(test, list[4]);
         }
 
         [TestMethod]
@@ -69,6 +89,7 @@ namespace ListTest
         {
             //Arrange
             CustomList<string> list = new CustomList<string>();
+            string test = "test3";
             list.AddToArray("test");
             list.AddToArray("test2");
             list.AddToArray("test3");
@@ -76,7 +97,6 @@ namespace ListTest
             //Act
             list.RemoveFromArray("test2");
 
-            string test = "test3";
 
             //Assert
             Assert.AreEqual(test, list[1]);
@@ -146,7 +166,6 @@ namespace ListTest
             int two = 3;
             int three = 1;
             int four = 4;
-            int five = 0;
 
             //Act
             list1.AddToArray(one);

@@ -29,7 +29,7 @@ namespace List
 
         public CustomList()
         {
-            arrayCapacity = 1;
+            arrayCapacity = 3;
             arrayCount = 0;
             items = new T[arrayCapacity];
         }
@@ -41,7 +41,23 @@ namespace List
                 items[arrayCount] = item;
                 arrayCount++;
             }
-
+            else if (arrayCount >= arrayCapacity)
+            {
+                arrayCapacity++;
+                arrayCount = 0;
+                T[] tempItems = new T[arrayCapacity];
+                //arrayCount++;
+                foreach (T thing in items) //change thing
+                {
+                    //arrayCount++;
+                    tempItems[arrayCount] = thing;
+                    arrayCount++;
+                }
+                tempItems[arrayCount] = item;
+                items = new T[arrayCapacity];
+                arrayCount++;
+                items = tempItems;
+            }
         }
 
         public void RemoveFromArray(T item)
@@ -66,7 +82,8 @@ namespace List
 
         public int CountList()
         {
-            return items.Count();
+            int count;
+            return count = items.Count();
         }
 
         public override string ToString()
@@ -82,18 +99,18 @@ namespace List
         {
             CustomList<T> list3 = new CustomList<T>();
 
-            if (list1 != null && list2 != null)
+            // if (list1 != null && list2 != null)
+            //{
+            for (int i = 0; i < list1.arrayCount; i++)
             {
-                for (int i = 0; i < list1.arrayCount; i++)
-                {
-                    list3.AddToArray(list1.items[i]);
-                }
-                for (int i = 0; i < list2.arrayCount; i++)
-                {
-                    list3.AddToArray(list2.items[i]);
-                }
+                list3.AddToArray(list1.items[i]);
             }
-            return list3;
+            for (int i = 0; i < list2.arrayCount; i++)
+            {
+                list3.AddToArray(list2.items[i]);
+            }
+            //}
+        return list3;
         }
     }
 }
