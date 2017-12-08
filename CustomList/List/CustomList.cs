@@ -39,7 +39,6 @@ namespace List
         {
             if (arrayCount < arrayCapacity)
             {
-                //arrayCapacity++;
                 items[arrayCount] = item;
                 arrayCount++;
                 arrayCapacity++;
@@ -55,7 +54,6 @@ namespace List
                 {
                     arrayCapacity--;
                     RemoveArrayStart(i);
-                    //arrayCapacity--;
                 }
             }
         }
