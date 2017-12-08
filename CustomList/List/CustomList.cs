@@ -41,24 +41,25 @@ namespace List
             {
                 items[arrayCount] = item;
                 arrayCount++;
+                arrayCapacity++;
             }
-            else if (arrayCount >= arrayCapacity)
-            {
-                arrayCapacity = arrayCapacity + 1;
-                arrayCount = 0;
+            //else if (arrayCount >= arrayCapacity)
+            //{
+            //    arrayCapacity = arrayCapacity + 1;
+            //    //arrayCount = 0;
 
-                T[] temporaryItem = new T[arrayCapacity];
+            //    T[] temporaryItem = new T[arrayCapacity];
 
-                foreach (T thing in items) //change thing
-                {
-                    temporaryItem[arrayCount] = thing; //change thing
-                    arrayCount++;
-                }
-                temporaryItem[arrayCount] = item;
-                items = new T[arrayCapacity];
-                arrayCount++;
-                items = temporaryItem;
-            }
+            //    foreach (T thing in items) //change thing
+            //    {
+            //        temporaryItem[arrayCount] = thing; //change thing
+            //        arrayCount++;
+            //    }
+            //    temporaryItem[arrayCount] = item;
+            //    items = new T[arrayCapacity];
+            //    arrayCount++;
+            //    items = temporaryItem;
+            //}
         }
 
         public void RemoveFromArray(string T)

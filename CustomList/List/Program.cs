@@ -10,7 +10,7 @@ namespace List
     {
         static void Main(string[] args)
         {
-            CustomList<string> array = new CustomList<string>();
+            CustomList<string> array = new CustomList<string>(); ;
             array.AddToArray("1");
 
             Console.WriteLine(array);

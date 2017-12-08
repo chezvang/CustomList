@@ -20,14 +20,61 @@ namespace ListTest
             Assert.AreEqual(array, "empty");
         }
 
-        public void CustomList_AddToArray_AddItem()
+        [TestMethod]
+        public void CustomList_AddStringToArray_AddItem()
         {
             //Arrange
+            CustomList<string> list = new CustomList<string>();
 
             //Act
+            string test = "string";
+            list.AddToArray("string");
 
             //Assert
+            Assert.AreEqual(test, list[0]);
+        }
 
+        [TestMethod]
+        public void CustomList_AddIntToArray_AddItem()
+        {
+            //Arrange
+            CustomList<int> list = new CustomList<int>();
+
+            //Act
+            int test = 1;
+            list.AddToArray(test);
+
+            //Assert
+            Assert.AreEqual(test, list[0]);
+        }
+
+        [TestMethod]
+        public void CustomList_AddCharToArray_AddItem()
+        {
+            //Arrange
+            CustomList<char> list = new CustomList<char>();
+
+            //Act
+            char test = 'a';
+            list.AddToArray(test);
+
+            //Assert
+            Assert.AreEqual(test, list[0]);
+        }
+
+        [TestMethod]
+        public void CustomList_AddObjectToArray_AddItem()
+        {
+            //Arrange
+            CustomList<object> list = new CustomList<object>();
+            Animal dog = new Animal();
+
+            //Act
+            object test = dog;
+            list.AddToArray(dog);
+
+            //Assert
+            Assert.AreEqual(test, list[0]);
         }
 
         [TestMethod]
