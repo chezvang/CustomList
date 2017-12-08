@@ -69,5 +69,14 @@ namespace List
         {
             return items.Count();
         }
+
+        public override string ToString()
+        {
+            string newString;
+
+            newString = items[0].ToString();
+
+            return newString;
+        }
     }
 }

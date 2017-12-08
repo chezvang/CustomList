@@ -8,19 +8,6 @@ namespace ListTest
     public class TestList
     {
         [TestMethod]
-        public void CustomList_InstanceList_CreateList()
-        {
-            //Arrange
-            CustomList<string> list = new CustomList<string>();
-
-            //Act
-            CustomList<string> listTwo = new CustomList<string>();
-
-            //Assert
-            Assert.AreEqual(list, listTwo);
-        }
-
-        [TestMethod]
         public void CustomList_AddStringToArray_AddItem()
         {
             //Arrange
@@ -114,5 +101,37 @@ namespace ListTest
             Assert.AreEqual(expectedCount, listCount);
         }
 
+        [TestMethod]
+        public void CustomList_StringToString_ReturnString()
+        {
+            //Arrange
+            CustomList<string> list = new CustomList<string>();
+            string test = "string";
+            string listString;
+
+            //Act
+            list.AddToArray(test);
+            listString = list.ToString();
+
+            //Assert
+            Assert.AreEqual(test, listString);
+        }
+
+        [TestMethod]
+        public void CustomList_IntToString_ReturnString()
+        {
+            //Arrange
+            CustomList<int> list = new CustomList<int>();
+            int test = 1;
+            string testResult = "1";
+            string listString;
+
+            //Act
+            list.AddToArray(test);
+            listString = list.ToString();
+
+            //Assert
+            Assert.AreEqual(testResult, listString);
+        }
     }
 }

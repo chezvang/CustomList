@@ -17,7 +17,7 @@ namespace List
 
             //array.RemoveFromArray("2");
 
-            //Console.WriteLine(array.CountList);
+            //Console.WriteLine(array.ToString);
 
             Console.ReadKey();
 
