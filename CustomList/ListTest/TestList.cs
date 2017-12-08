@@ -14,10 +14,10 @@ namespace ListTest
             CustomList<string> list = new CustomList<string>();
 
             //Act
-            string[] array = new string[0];
+            CustomList<string> listTwo = new CustomList<string>();
 
             //Assert
-            Assert.AreEqual(array, "empty");
+            Assert.AreEqual(list, listTwo);
         }
 
         [TestMethod]
@@ -93,6 +93,25 @@ namespace ListTest
 
             //Assert
             Assert.AreEqual(test, list[1]);
+        }
+
+        [TestMethod]
+        public void CustomList_CountTwo_ReturnCountTwo()
+        {
+            //Arrange
+            CustomList<string> list = new CustomList<string>();
+            int expectedCount = 3;
+            int listCount;
+
+            //Act
+            list.AddToArray("1");
+            list.AddToArray("2");
+            list.AddToArray("3");
+
+            listCount = list.CountList();
+
+            //Assert
+            Assert.AreEqual(expectedCount, listCount);
         }
 
     }

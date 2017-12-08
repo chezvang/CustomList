@@ -10,14 +10,14 @@ namespace List
     {
         static void Main(string[] args)
         {
-            CustomList<string> array = new CustomList<string>(); 
-            array.AddToArray("1");
-            array.AddToArray("2");
-            array.AddToArray("3");
+            CustomList<string> array = new CustomList<string>();
+            //array.AddToArray("1");
+            //array.AddToArray("2");
+            //array.AddToArray("3");
 
-            array.RemoveFromArray("2");
+            //array.RemoveFromArray("2");
 
-            Console.WriteLine(array[1]);
+            //Console.WriteLine(array.CountList);
 
             Console.ReadKey();
 

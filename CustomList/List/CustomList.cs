@@ -8,7 +8,6 @@ namespace List
 {
     public class CustomList <T>
     {
-        //CustomList<string> array = new CustomList<string>();
 
         public int arrayCount; //keeps track of count
         public int arrayCapacity; //keeps track of capacity
@@ -64,6 +63,11 @@ namespace List
             {
                 items[i] = items[i + 1];
             }
+        }
+
+        public int CountList()
+        {
+            return items.Count();
         }
     }
 }
