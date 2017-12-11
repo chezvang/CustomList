@@ -9,8 +9,8 @@ namespace List
     public class CustomList <T>
     {
 
-        public int arrayCount; //keeps track of count
-        public int arrayCapacity; //keeps track of capacity
+        private int arrayCount; //keeps track of count
+        private int arrayCapacity; //keeps track of capacity
 
         //indexer
         public T[] items;
@@ -29,7 +29,7 @@ namespace List
 
         public CustomList()
         {
-            arrayCapacity = 3;
+            arrayCapacity = 1;
             arrayCount = 0;
             items = new T[arrayCapacity];
         }
@@ -43,14 +43,12 @@ namespace List
             }
             else if (arrayCount >= arrayCapacity)
             {
-                arrayCapacity++;
+                arrayCapacity = arrayCapacity + 1;
                 arrayCount = 0;
                 T[] tempItems = new T[arrayCapacity];
-                //arrayCount++;
-                foreach (T thing in items) //change thing
+                foreach (T other in items)
                 {
-                    //arrayCount++;
-                    tempItems[arrayCount] = thing;
+                    tempItems[arrayCount] = other;
                     arrayCount++;
                 }
                 tempItems[arrayCount] = item;
@@ -83,7 +81,9 @@ namespace List
         public int CountList()
         {
             int count;
-            return count = items.Count();
+
+            count = items.Count();
+            return count;
         }
 
         public override string ToString()
@@ -95,11 +95,23 @@ namespace List
             return newString;
         }
 
+        private bool Contains(T item)
+        {
+            for (int i = 0; i < arrayCount; i++)
+            {
+                if (items[i].Equals(item))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public static CustomList<T> operator + (CustomList<T>list1, CustomList<T>list2)
         {
             CustomList<T> list3 = new CustomList<T>();
 
-            // if (list1 != null && list2 != null)
+            //if (list1 != null && list2 != null)
             //{
             for (int i = 0; i < list1.arrayCount; i++)
             {
@@ -112,5 +124,60 @@ namespace List
             //}
         return list3;
         }
+
+        public static CustomList<T> operator - (CustomList<T> list1, CustomList<T> list2)
+        {
+            CustomList<T> list3 = new CustomList<T>();
+
+            if (list1 != null && list2 != null)
+            {
+                for (int i = 0; i < list2.arrayCount; i++)
+                {
+                    if (!list1.Contains(list2[i]))
+                    {
+                        list3.AddToArray(list2[i]);
+                    }
+                }                   
+            }
+            return list3;
+        }
+
+        public CustomList<T> Zip(CustomList<T>list1, CustomList<T>list2)
+        {
+            CustomList<T> result = new CustomList<T>();
+            try
+            {
+                if (list1.arrayCount <= list2.arrayCount)
+                {
+                    for (int i = 0; i < list1.arrayCount; i++)
+                    {
+                        result.AddToArray(list1[i]);
+                        result.AddToArray(list2[i]);
+                    }
+                    for (int j = result.arrayCount - 1; j < list2.arrayCount; j++)
+                    {
+                        result.AddToArray(list2[j]);
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < list2.arrayCount; i++)
+                    {
+                        result.AddToArray(list1[i]);
+                        result.AddToArray(list2[i]);
+                    }
+                    for (int j = result.arrayCount - 1; j <= list1.arrayCount; j++)
+                    {
+                        result.AddToArray(list1[j]);
+                    }
+                }
+                return result;
+            }
+            catch(Exception)
+            {
+                throw new ArgumentNullException();
+            }
+        }
+
     }
 }

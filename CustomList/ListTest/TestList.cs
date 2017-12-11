@@ -42,6 +42,25 @@ namespace ListTest
         }
 
         [TestMethod]
+        public void CustomList_AddFiveIntToArray_AddItem()
+        {
+            //Arrange
+            CustomList<int> list = new CustomList<int>();
+
+            //Act
+            int test = 4;
+
+            list.AddToArray(1);
+            list.AddToArray(2);
+            list.AddToArray(3);
+            list.AddToArray(4);
+            list.AddToArray(5);
+
+            //Assert
+            Assert.AreEqual(test, list[3]);
+        }
+
+        [TestMethod]
         public void CustomList_AddIntToArray_AddItem()
         {
             //Arrange
@@ -97,13 +116,12 @@ namespace ListTest
             //Act
             list.RemoveFromArray("test2");
 
-
             //Assert
             Assert.AreEqual(test, list[1]);
         }
 
         [TestMethod]
-        public void CustomList_CountTwo_ReturnCountTwo()
+        public void CustomList_CountFour_ReturnCountFour()
         {
             //Arrange
             CustomList<string> list = new CustomList<string>();
@@ -172,12 +190,61 @@ namespace ListTest
             list1.AddToArray(two);
             list2.AddToArray(three);
             list2.AddToArray(four);
-            //list3.AddToArray(five);
 
             list3 = list1 + list2;
 
             //Assert
             Assert.AreEqual(expectedResult, list3[0]);
+        }
+
+        [TestMethod]
+        public void CustomList_SubtractOperator_ReturnList()
+        {
+            //Arrange
+            CustomList<int> list1 = new CustomList<int>();
+            CustomList<int> list2 = new CustomList<int>();
+            CustomList<int> list3 = new CustomList<int>();
+            int expectedResult = 1;
+            int one = 2; //2
+            int two = 3; //3
+            int three = 1; //1
+            int four = 4; //4
+
+            //Act
+            list1.AddToArray(one);
+            list1.AddToArray(two);
+            list2.AddToArray(three);
+            list2.AddToArray(four);
+
+            list3 = list1 - list2;
+
+            //Assert
+            Assert.AreEqual(expectedResult, list3[0]);
+        }
+
+        [TestMethod]
+        public void CustomList_Zip_ReturnIndex()
+        {
+            //Arrange
+            CustomList<int> list1 = new CustomList<int>();
+            CustomList<int> list2 = new CustomList<int>();
+            CustomList<int> list3 = new CustomList<int>();
+            int expectedResult = 2;
+            int one = 0;
+            int two = 1;
+            int three = 2;
+            int four = 3;
+
+            //Act
+            list1.AddToArray(one);
+            list1.AddToArray(three);
+            list2.AddToArray(two);
+            list2.AddToArray(four);
+
+            list3 = list1.Zip(list1, list2);
+
+            //Assert
+            Assert.AreEqual(expectedResult, list3[2]);
         }
     }
 }
