@@ -223,7 +223,7 @@ namespace ListTest
         }
 
         [TestMethod]
-        public void CustomList_Zip_ReturnIndex()
+        public void CustomList_ZipInt_ReturnZip()
         {
             //Arrange
             CustomList<int> list1 = new CustomList<int>();
@@ -245,6 +245,31 @@ namespace ListTest
 
             //Assert
             Assert.AreEqual(expectedResult, list3[2]);
+        }
+
+        [TestMethod]
+        public void CustomList_ZipString_ReturnZip()
+        {
+            //Arrange
+            CustomList<string> list1 = new CustomList<string>();
+            CustomList<string> list2 = new CustomList<string>();
+            CustomList<string> list3 = new CustomList<string>();
+            string expectedResult = "name";
+            string one = "my";
+            string two = "name";
+            string three = "is";
+            string four = "chez";
+
+            //Act
+            list1.AddToArray(one);
+            list1.AddToArray(three);
+            list2.AddToArray(two);
+            list2.AddToArray(four);
+
+            list3 = list1.Zip(list1, list2);
+
+            //Assert
+            Assert.AreEqual(expectedResult, list3[1]);
         }
     }
 }
